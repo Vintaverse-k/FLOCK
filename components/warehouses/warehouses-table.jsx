@@ -108,7 +108,7 @@ const warehouses = [
   },
 ]
 
-const getStatusColor = (status: string) => {
+const getStatusColor = (status) => {
   switch (status) {
     case "Active":
       return "bg-green-100 text-green-800"
@@ -218,8 +218,7 @@ export function WarehousesTable() {
         {/* Pagination */}
         <div className="flex items-center justify-between mt-6">
           <p className="text-sm text-gray-600">
-            Showing {startIndex + 1} to {Math.min(endIndex, filteredWarehouses.length)} of {filteredWarehouses.length}{" "}
-            results
+            Showing {startIndex + 1} to {Math.min(endIndex, filteredWarehouses.length)} of {filteredWarehouses.length} results
           </p>
           <div className="flex items-center space-x-2">
             <p className="text-sm text-gray-600">Per page</p>

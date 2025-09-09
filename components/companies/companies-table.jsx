@@ -103,7 +103,7 @@ const companies = [
 export function CompaniesTable() {
   const [searchTerm, setSearchTerm] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 8
+  const [itemsPerPage, setItemsPerPage] = useState(8)
 
   const filteredCompanies = companies.filter(
     (company) =>
@@ -127,7 +127,10 @@ export function CompaniesTable() {
             <Input
               placeholder="Search"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => {
+                setSearchTerm(e.target.value)
+                setCurrentPage(1) // reset page on search
+              }}
               className="pl-10 w-64 border-gray-200 focus:border-red-500 focus:ring-red-500"
             />
           </div>
@@ -197,7 +200,14 @@ export function CompaniesTable() {
           </p>
           <div className="flex items-center space-x-2">
             <p className="text-sm text-gray-600">Per page</p>
-            <select className="border border-gray-200 rounded px-2 py-1 text-sm">
+            <select
+              value={itemsPerPage}
+              onChange={(e) => {
+                setItemsPerPage(Number(e.target.value))
+                setCurrentPage(1)
+              }}
+              className="border border-gray-200 rounded px-2 py-1 text-sm"
+            >
               <option value="8">8</option>
               <option value="16">16</option>
               <option value="24">24</option>
