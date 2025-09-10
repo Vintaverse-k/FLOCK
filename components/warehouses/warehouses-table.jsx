@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Progress } from "@/components/ui/progress"
 import { Search, Filter, MoreHorizontal, ChevronLeft, ChevronRight } from "lucide-react"
 
 const warehouses = [
@@ -163,7 +162,13 @@ export function WarehousesTable() {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-200">
+              <tr
+                className="border-b border-gray-200"
+                style={{ backgroundColor: "#F6F8FA", borderBottom: "1px solid #DFE1E7" }}
+              >
+                <th className="py-3 px-4">
+                  <input type="checkbox" />
+                </th>
                 <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Warehouse ID</th>
                 <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Name</th>
                 <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Location</th>
@@ -177,18 +182,18 @@ export function WarehousesTable() {
             <tbody>
               {currentWarehouses.map((warehouse) => (
                 <tr key={warehouse.id} className="border-b border-gray-100 hover:bg-gray-50">
+                  <td className="py-4 px-4">
+                    <input type="checkbox" />
+                  </td>
                   <td className="py-4 px-4 text-sm font-medium text-gray-900">{warehouse.id}</td>
                   <td className="py-4 px-4 text-sm font-medium text-gray-900">{warehouse.name}</td>
                   <td className="py-4 px-4 text-sm text-gray-600">{warehouse.location}</td>
                   <td className="py-4 px-4 text-sm text-gray-600">{warehouse.capacity.toLocaleString()}</td>
+                  <td className="py-4 px-4 text-sm text-gray-600">{warehouse.used}%</td>
                   <td className="py-4 px-4">
-                    <div className="flex items-center space-x-2">
-                      <Progress value={warehouse.used} className="w-16 h-2" />
-                      <span className="text-sm text-gray-600 min-w-[30px]">{warehouse.used}%</span>
-                    </div>
-                  </td>
-                  <td className="py-4 px-4">
-                    <Badge className={`${getStatusColor(warehouse.status)} border-0`}>{warehouse.status}</Badge>
+                    <Badge className={`${getStatusColor(warehouse.status)} border-0`}>
+                      {warehouse.status}
+                    </Badge>
                   </td>
                   <td className="py-4 px-4">
                     <div className="flex items-center">
@@ -244,7 +249,9 @@ export function WarehousesTable() {
                   size="sm"
                   onClick={() => setCurrentPage(page)}
                   className={
-                    currentPage === page ? "bg-red-500 hover:bg-red-600 text-white" : "border-gray-200 bg-transparent"
+                    currentPage === page
+                      ? "bg-red-500 hover:bg-red-600 text-white"
+                      : "border-gray-200 bg-transparent"
                   }
                 >
                   {page}

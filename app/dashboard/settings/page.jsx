@@ -1,94 +1,67 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
-import { Separator } from "@/components/ui/separator"
+"use client"
+import { useState } from "react"
+
+// Import tab components
+import GeneralTab from "./tabs/GeneralTab"
+// import PlanPricingTab from "./tabs/PlanPricingTab"
+// import MyAccountTab from "./tabs/MyAccountTab"
+// import PaymentBillingTab from "./tabs/PaymentBillingTab"
+// import TaxDutiesTab from "./tabs/TaxDutiesTab"
+// import LinkAccountTab from "./tabs/LinkAccountTab"
+// import TimeLanguageTab from "./tabs/TimeLanguageTab"
+// import PasswordTab from "./tabs/PasswordTab"
+// import NotificationTab from "./tabs/NotificationTab"
+
+// Sidebar items
+const tabs = [
+  { id: "general", label: "General" },
+  { id: "plan", label: "Plan & Pricing" },
+  { id: "account", label: "My Account" },
+  { id: "billing", label: "Payment & Billing" },
+  { id: "tax", label: "Tax & Duties" },
+  { id: "link", label: "Link Account" },
+  { id: "time", label: "Time & Language" },
+  { id: "password", label: "Password" },
+  { id: "notification", label: "Notification" },
+]
 
 export default function SettingsPage() {
+  const [activeTab, setActiveTab] = useState("general")
+
   return (
-    <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold tracking-tight">Settings</h2>
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <div className="w-64 border-r bg-gray-50 p-4">
+        <h2 className="mb-6 text-xl font-bold">Settings</h2>
+        <ul className="space-y-2">
+          {tabs.map((tab) => (
+            <li key={tab.id}>
+              <button
+                onClick={() => setActiveTab(tab.id)}
+                className={`w-full text-left px-3 py-2 rounded-md transition ${
+                  activeTab === tab.id
+                    ? "bg-blue-500 text-white"
+                    : "hover:bg-gray-200"
+                }`}
+              >
+                {tab.label}
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <div className="grid gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Profile Settings</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="firstName">First Name</Label>
-                <Input id="firstName" defaultValue="Robert" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="lastName">Last Name</Label>
-                <Input id="lastName" defaultValue="Johnson" />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" defaultValue="robert.johnson@flock.com" />
-            </div>
-            <Button className="bg-red-500 hover:bg-red-600">Save Changes</Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Notifications</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
-                <Label>Email Notifications</Label>
-                <p className="text-sm text-muted-foreground">Receive email updates about shipments</p>
-              </div>
-              <Switch defaultChecked />
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
-                <Label>Push Notifications</Label>
-                <p className="text-sm text-muted-foreground">Receive push notifications on your device</p>
-              </div>
-              <Switch defaultChecked />
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
-                <Label>SMS Notifications</Label>
-                <p className="text-sm text-muted-foreground">Receive SMS updates for urgent shipments</p>
-              </div>
-              <Switch />
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>System Preferences</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
-                <Label>Dark Mode</Label>
-                <p className="text-sm text-muted-foreground">Toggle dark mode interface</p>
-              </div>
-              <Switch />
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
-                <Label>Auto-refresh Data</Label>
-                <p className="text-sm text-muted-foreground">Automatically refresh dashboard data</p>
-              </div>
-              <Switch defaultChecked />
-            </div>
-          </CardContent>
-        </Card>
+      {/* Content Area */}
+      <div className="flex-1 p-6">
+        {activeTab === "general" && <GeneralTab />}
+        {activeTab === "plan" && <PlanPricingTab />}
+        {activeTab === "account" && <MyAccountTab />}
+        {activeTab === "billing" && <PaymentBillingTab />}
+        {activeTab === "tax" && <TaxDutiesTab />}
+        {activeTab === "link" && <LinkAccountTab />}
+        {activeTab === "time" && <TimeLanguageTab />}
+        {activeTab === "password" && <PasswordTab />}
+        {activeTab === "notification" && <NotificationTab />}
       </div>
     </div>
   )

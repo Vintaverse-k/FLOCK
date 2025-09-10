@@ -129,7 +129,9 @@ const ShipmentPerformance = () => {
         borderRadius: '8px',
         border: '1px solid #DFE1E7',
         boxShadow: '0px 1px 2px 0px #0D0D120F',
-        width: '744px',
+        width: '100%',
+        // maxWidth:'744px',
+
         display: 'flex',
         flexDirection: 'column',
       }}

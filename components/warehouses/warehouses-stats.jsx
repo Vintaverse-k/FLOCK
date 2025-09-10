@@ -1,5 +1,7 @@
+'use client'
+
 import { Card, CardContent } from "@/components/ui/card"
-import { TrendingUp, TrendingDown, Warehouse, CheckCircle, AlertTriangle, BarChart3 } from "lucide-react"
+import { TrendingUp, TrendingDown } from "lucide-react"
 
 const stats = [
   {
@@ -8,9 +10,8 @@ const stats = [
     change: "+8%",
     changeType: "increase",
     subtitle: "from last month",
-    icon: Warehouse,
+    iconSrc: "/totalwarehouse.svg",
     color: "text-blue-600",
-    bgColor: "bg-blue-50",
   },
   {
     title: "Active Warehouses",
@@ -18,9 +19,8 @@ const stats = [
     change: "+8%",
     changeType: "increase",
     subtitle: "from last month",
-    icon: CheckCircle,
+    iconSrc: "/activewarehouse.svg",
     color: "text-green-600",
-    bgColor: "bg-green-50",
   },
   {
     title: "Under Maintenance",
@@ -28,38 +28,50 @@ const stats = [
     change: "-8%",
     changeType: "decrease",
     subtitle: "from last month",
-    icon: AlertTriangle,
+    iconSrc: "/underwarehouse.svg",
     color: "text-orange-600",
-    bgColor: "bg-orange-50",
   },
   {
     title: "Avg. Capacity Used",
-    value: "64",
+    value: "64%",
     change: "+8%",
     changeType: "increase",
     subtitle: "from last month",
-    icon: BarChart3,
+    iconSrc: "/avgwarehouse.svg",
     color: "text-purple-600",
-    bgColor: "bg-purple-50",
   },
 ]
 
 export function WarehousesStats() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="flex flex-wrap gap-6 justify-start">
       {stats.map((stat) => (
-        <Card key={stat.title} className="border-gray-200">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
+        <Card
+          key={stat.title}
+          className="border-gray-200"
+          style={{ width: '265px', height: '137px' }}
+        >
+          <CardContent className="p-6 h-full">
+            <div className="flex items-center justify-between h-full">
+              <div className="flex-1 flex flex-col justify-between">
+                {/* Top section */}
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-sm font-medium text-gray-600">{stat.title}</p>
-                  <div className={`p-2 rounded-lg ${stat.bgColor}`}>
-                    <stat.icon className={`h-4 w-4 ${stat.color}`} />
+                  <div>
+                    <img
+                      src={stat.iconSrc}
+                      alt={`${stat.title} icon`}
+                      width={36}
+                      height={36}
+                    />
                   </div>
                 </div>
-                <div className="flex items-baseline space-x-2">
-                  <p className="text-2xl font-semibold text-gray-900">{stat.value}</p>
+
+                {/* Value */}
+                <p className="text-2xl font-semibold text-gray-900">{stat.value}</p>
+
+                {/* Change and subtitle */}
+                <div className="flex items-center gap-2 mt-1">
                   <div className="flex items-center">
                     {stat.changeType === "increase" ? (
                       <TrendingUp className="h-3 w-3 text-green-500 mr-1" />
@@ -74,8 +86,8 @@ export function WarehousesStats() {
                       {stat.change}
                     </span>
                   </div>
+                  <p className="text-xs text-gray-500">{stat.subtitle}</p>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">{stat.subtitle}</p>
               </div>
             </div>
           </CardContent>

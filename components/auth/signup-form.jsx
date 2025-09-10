@@ -54,7 +54,7 @@ export function SignupForm() {
         </CardDescription>
       </CardHeader>
 
-      {/* 🔥 Added left/right padding: px-6 */}
+      {/*  Added left/right padding: px-6 */}
       <CardContent className="space-y-6 px-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Full Name */}

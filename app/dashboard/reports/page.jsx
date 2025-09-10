@@ -15,11 +15,12 @@ export default function ReportsPage() {
   }
 
   return (
-    <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
+    <div className="flex-1 space-y-4">
       <ReportsHeader onAddShipment={() => setIsAddModalOpen(true)} />
-      <ReportsStats />
+     
       <div className="grid gap-4 md:grid-cols-1">
         <ShipmentPerformanceChart />
+         <ReportsStats />
       </div>
       <RecentShipmentActivity />
 
