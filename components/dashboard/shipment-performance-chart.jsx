@@ -21,6 +21,8 @@ ChartJS.register(
   Legend
 );
 
+import "../../styles/shipmentper.css";
+
 const ShipmentPerformance = () => {
   const data = {
     labels: [
@@ -121,65 +123,29 @@ const ShipmentPerformance = () => {
   };
 
   return (
-    <div
-      className="shipment-performance"
-      style={{
-        background: '#fff',
-        padding: '20px',
-        borderRadius: '8px',
-        border: '1px solid #DFE1E7',
-        boxShadow: '0px 1px 2px 0px #0D0D120F',
-        width: '100%',
-        // maxWidth:'744px',
-
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '12px',
-        }}
-      >
-        <h3 style={{ margin: 0, fontWeight: 600 }}>Shipment Performance</h3>
-        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-          <select style={{ padding: '6px 12px', borderRadius: '8px', border: '1px solid #ccc' }}>
+    <div className="shipment-performance-card">
+      <div className="shipment-header">
+        <h3>Shipment Performance</h3>
+        <div className="shipment-controls">
+          <select>
             <option>Weekly</option>
             <option>Monthly</option>
             <option>Yearly</option>
           </select>
-          <button
-            style={{
-              background: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '20px',
-              color: '#666',
-            }}
-            title="Refresh"
-          >
-            &#10227;
-          </button>
+          <button title="Refresh">&#10227;</button>
         </div>
       </div>
 
-      <div style={{ marginBottom: '16px' }}>
-        <h2 style={{ margin: 0, fontWeight: 700, fontSize: '28px' }}>
-          5,340{' '}
-          <span style={{ color: '#4caf50', fontWeight: 500, fontSize: '16px' }}>
-            ↑ 4.3%
-          </span>{' '}
-          <span style={{ color: '#666', fontWeight: 400, fontSize: '16px' }}>
-            from last period
-          </span>
+      <div className="shipment-summary">
+        <h2>
+          5,340 <span className="percent">↑ 4.3%</span> <span className="period">from last period</span>
         </h2>
       </div>
 
-      <div style={{ flex: 1 }}>
-        <Line data={data} options={options} />
+      <div className="chart-container">
+        <div className="chart-scroll">
+          <Line data={data} options={options} />
+        </div>
       </div>
     </div>
   );

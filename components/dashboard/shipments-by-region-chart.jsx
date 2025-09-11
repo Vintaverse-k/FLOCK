@@ -8,7 +8,7 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
-
+import "../../styles/shipmentreg.css"
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ShipmentsByRegion = () => {

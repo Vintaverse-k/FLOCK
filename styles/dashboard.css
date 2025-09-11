@@ -1,0 +1,51 @@
+/* Default card size */
+.dashboard-card {
+  width: 100%;
+  max-width: 265px;
+  height: 137px;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 768px) {
+  .dashboard-card {
+    width: 100%;
+    max-width: 427px;
+    height: 137px;
+  }
+
+  .flex.flex-wrap.gap-6.justify-start {
+    gap: 16px;
+  }
+
+  
+}
+
+
+/* dashboard-stats-mobile.css */
+
+
+/* page.js */
+/* 📱 DashboardPage Mobile Responsive */
+@media (max-width: 768px) {
+  /* Header */
+  .space-y-6 > .flex.items-center.justify-between {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Header buttons stack */
+  .space-y-6 > .flex.items-center.justify-between > .flex.items-center.space-x-3 {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Charts stack vertically */
+  .space-y-6 > .flex.gap-6.overflow-x-auto {
+    flex-direction: column;
+    gap: 20px;
+    overflow-x: visible;
+  }
+}

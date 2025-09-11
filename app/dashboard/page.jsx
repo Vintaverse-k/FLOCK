@@ -7,7 +7,7 @@ import  ShipmentsByRegionChart  from "@/components/dashboard/shipments-by-region
 import RecentShipmentActivity from "@/components/dashboard/recent-shipment-activity"
 import { Button } from "@/components/ui/button"
 import { AddShipmentModal } from "@/components/shipments/add-shipment-modal"
-
+import "../../styles/dashboard.css"
 export default function DashboardPage() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false)
 

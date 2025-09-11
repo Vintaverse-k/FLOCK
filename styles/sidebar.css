@@ -1,0 +1,50 @@
+/* dashboard-mobile.css */
+
+/* सिर्फ़ mobile screens के लिए */
+@media (max-width: 768px) {
+  /* Sidebar */
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px; /* by default hidden */
+    width: 240px;
+    height: 100%;
+    background: #fff;
+    border-right: 1px solid #e5e7eb; /* border-gray-200 */
+    transition: left 0.3s ease-in-out;
+    z-index: 50;
+  }
+
+  /* जब hamburger क्लिक हो तो active */
+  .dashboard-sidebar.active {
+    left: 0;
+  }
+
+  /* Main content margins */
+  .dashboard-content {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  /* Hamburger button */
+  .hamburger-btn {
+    position: fixed;
+    top: 16px;
+    left: 24px;
+    z-index: 60;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .hamburger-btn span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 4px 0;
+    background: #333;
+    border-radius: 2px;
+  }
+}

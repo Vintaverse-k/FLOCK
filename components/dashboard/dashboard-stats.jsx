@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
+import "../../styles/dashboard.css"
 
 const stats = [
   {
@@ -44,12 +45,13 @@ export function DashboardStats() {
       {stats.map((stat) => (
         <Card
           key={stat.title}
-          className="border-gray-200"
-          style={{ width: '265px', height: '137px' }}
+          className="border-gray-200 dashboard-card"
         >
           <CardContent className="p-6 h-full">
             <div className="flex items-center justify-between h-full">
               <div className="flex-1 flex flex-col justify-between">
+                
+                {/* Title + Icon */}
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-sm font-medium text-gray-600">{stat.title}</p>
                   <div>
@@ -66,10 +68,10 @@ export function DashboardStats() {
                 {/* Value */}
                 <p className="text-2xl font-semibold text-gray-900">{stat.value}</p>
 
-                {/* Change and Subtitle side by side */}
+                {/* Change + Subtitle */}
                 <div className="flex items-center gap-2 mt-1">
                   <div className="flex items-center">
-                                       <span
+                    <span
                       className={`text-xs font-medium ${
                         stat.changeType === "increase" ? "text-green-600" : "text-red-600"
                       }`}

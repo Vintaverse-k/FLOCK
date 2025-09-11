@@ -1,0 +1,98 @@
+.shipment-performance-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #DFE1E7;
+  box-shadow: 0px 1px 2px 0px #0D0D120F;
+  width: 100%;
+  max-width: 744px;
+  display: flex;
+  flex-direction: column;
+}
+
+.shipment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.shipment-header h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.shipment-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.shipment-controls select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.shipment-controls button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #666;
+}
+
+.shipment-summary {
+  margin-bottom: 16px;
+}
+
+.shipment-summary h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.shipment-summary .percent {
+  color: #4caf50;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.shipment-summary .period {
+  color: #666;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* Chart card container */
+.chart-container {
+  flex: 1;
+  overflow-x: auto; /* horizontal scroll inside card */
+}
+
+/* Inner scroll wrapper to set chart width */
+.chart-scroll {
+  min-width: 600px; /* chart width bigger than card width, scroll appears */
+  height: 300px; /* fixed chart height */
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  body {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .shipment-performance-card {
+    padding: 16px;
+  }
+
+  .chart-scroll {
+    min-width: 500px; 
+    height: 250px;
+  }
+
+  .shipment-summary h2 {
+    font-size: 22px;
+  }
+}

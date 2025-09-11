@@ -4,7 +4,7 @@ import { Search, Bell, RefreshCw } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
+import "../../styles/header.css"
 export function DashboardHeader() {
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">

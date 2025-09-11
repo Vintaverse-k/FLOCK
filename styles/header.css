@@ -1,0 +1,35 @@
+/* 📱 DashboardHeader Mobile: 4 icons right aligned */
+@media (max-width: 768px) {
+  header > div.flex.items-center.justify-between {
+    justify-content: flex-end; /* all icons to right */
+    gap: 12px; /* spacing between icons */
+  }
+
+  /* Hide input field */
+  header input {
+    display: none;
+  }
+
+  /* Hide shortcut */
+  header kbd {
+    display: none;
+  }
+
+  /* Hide avatar text */
+  header .flex.items-center.space-x-4 > div.flex.items-center.space-x-3 > div.text-sm {
+    display: none;
+  }
+
+  /* Shrink avatar */
+  header .flex.items-center.space-x-4 > div.flex.items-center.space-x-3 > .ui-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Search icon standalone, positioned like other icons */
+  header .relative > svg {
+    position: static;
+    transform: none;
+    margin: 0;
+  }
+}
