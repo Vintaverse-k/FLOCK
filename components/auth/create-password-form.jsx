@@ -34,7 +34,6 @@ export function CreatePasswordForm() {
         </CardDescription>
       </CardHeader>
 
-      {/* ✅ Added px-6 for padding */}
       <CardContent className="space-y-6 px-6">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Email Field */}
@@ -55,7 +54,6 @@ export function CreatePasswordForm() {
 
           {/* Buttons */}
           <div className="space-y-2">
-            {/* ✅ h-10 for both buttons */}
             <Button
               type="submit"
               disabled={!email}
@@ -72,7 +70,6 @@ export function CreatePasswordForm() {
             </Link>
           </div>
 
-          {/* Extra text below buttons */}
           <p className="text-center text-sm text-gray-500 mt-2">
             Don't have access anymore? <span className="text-red-500 font-medium">Try another method</span>
           </p>

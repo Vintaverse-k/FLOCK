@@ -76,7 +76,6 @@ export function OTPVerificationForm() {
         </CardDescription>
       </CardHeader>
 
-      {/* ✅ px-6 added for horizontal padding */}
       <CardContent className="space-y-6 px-6">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* OTP Inputs */}
@@ -96,7 +95,6 @@ export function OTPVerificationForm() {
             ))}
           </div>
 
-          {/* ✅ Button height changed to h-10 */}
           <Button
             type="submit"
             disabled={otp.join("").length !== 6}

@@ -95,8 +95,9 @@ export function DashboardSidebar() {
                       className={cn(
                         "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                         isActive
-                          ? "bg-red-50 text-red-600 border-r-2 border-red-600"
-                          : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+
+              ? "bg-[#F6F8FA] border border-[#DFE1E7]"
+              : "hover:bg-gray-100"
                       )}
                     >
                       <img
@@ -128,8 +129,9 @@ export function DashboardSidebar() {
                       className={cn(
                         "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                         isActive
-                          ? "bg-red-50 text-red-600 border-r-2 border-red-600"
-                          : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+
+              ? "bg-[#F6F8FA] border border-[#DFE1E7]"
+              : "hover:bg-gray-100"
                       )}
                     >
                       <img

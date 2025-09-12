@@ -66,30 +66,30 @@ export function TrackingTable({ trackingData = [] }) {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-  <tr
-    className="border-b border-gray-200"
-    style={{ backgroundColor: "#F6F8FA", borderBottom: "1px solid #DFE1E7" }}
-  >
-    <th className="py-3 px-4">
-      <input type="checkbox" />
-    </th>
-    <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Tracking No.</th>
-    <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Order ID</th>
-    <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Customer Name</th>
-    <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Origin City</th>
-    <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Destination City</th>
-    <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Carrier</th>
-    <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Status</th>
-    <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm"></th>
-  </tr>
-</thead>
+              <tr
+                className="border-b border-gray-200"
+                style={{ backgroundColor: "#F6F8FA", borderBottom: "1px solid #DFE1E7" }}
+              >
+                <th className="py-3 px-4 flex items-center justify-center">
+                  <input type="checkbox" className="w-4 h-4" />
+                </th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Tracking No.</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Order ID</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Customer Name</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Origin City</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Destination City</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Carrier</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm">Status</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600 text-sm"></th>
+              </tr>
+            </thead>
 
             <tbody>
               {currentTracking.map((item) => (
                 <tr key={item.trackingNo} className="border-b border-gray-100 hover:bg-gray-50">
-                 <td className="py-4 px-4">
-  <input type="checkbox" />
-</td>
+                  <td className="py-4 px-4 flex items-center justify-center">
+                    <input type="checkbox" className="w-4 h-4" />
+                  </td>
 
                   <td className="py-4 px-4 text-sm font-medium text-gray-900">{item.trackingNo}</td>
                   <td className="py-4 px-4 text-sm text-gray-600">{item.orderId}</td>
