@@ -23,7 +23,7 @@ const companies = [
     phone: "(+91 7831058000)",
     url: "https://vintaverse.com/",
     category: "Consumer Electronics",
-    categoryColor: "bg-blue-100 text-blue-800",
+    categoryColor: "border-blue-800 text-blue-800 bg-transparent",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const companies = [
     phone: "(704) 555-0129",
     url: "https://www.apple.com/",
     category: "Consumer Electronics",
-    categoryColor: "bg-blue-100 text-blue-800",
+    categoryColor: "border-blue-800 text-blue-800 bg-transparent",
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const companies = [
     phone: "(425) 555-0100",
     url: "https://www.microsoft.com/",
     category: "Software & Services",
-    categoryColor: "bg-green-100 text-green-800",
+    categoryColor: "border-green-800 text-green-800 bg-transparent",
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const companies = [
     phone: "(650) 555-0102",
     url: "https://www.google.com/",
     category: "Internet Services",
-    categoryColor: "bg-purple-100 text-purple-800",
+    categoryColor: "border-purple-800 text-purple-800 bg-transparent",
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ const companies = [
     phone: "(206) 555-0103",
     url: "https://www.amazon.com/",
     category: "E-Commerce",
-    categoryColor: "bg-orange-100 text-orange-800",
+    categoryColor: "border-orange-800 text-orange-800 bg-transparent",
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ const companies = [
     phone: "(650) 555-0104",
     url: "https://www.facebook.com/",
     category: "Social Media",
-    categoryColor: "bg-indigo-100 text-indigo-800",
+    categoryColor: "border-indigo-800 text-indigo-800 bg-transparent",
   },
   {
     id: 7,
@@ -83,7 +83,7 @@ const companies = [
     phone: "(650) 555-0105",
     url: "https://www.vimeo.com/",
     category: "Multimedia",
-    categoryColor: "bg-cyan-100 text-cyan-800",
+    categoryColor: "border-cyan-800 text-cyan-800 bg-transparent",
   },
   {
     id: 8,
@@ -93,7 +93,7 @@ const companies = [
     phone: "(914) 555-0106",
     url: "https://www.ibm.com/in-en",
     category: "Technology",
-    categoryColor: "bg-gray-100 text-gray-800",
+    categoryColor: "border-gray-800 text-gray-800 bg-transparent",
   },
 ]
 
@@ -194,7 +194,9 @@ export function CompaniesTable() {
                     </a>
                   </td>
                   <td className="py-4 px-4">
-                    <Badge className={`${company.categoryColor} border-0`}>{company.category}</Badge>
+                    <Badge className={`${company.categoryColor} border`}>
+                      {company.category}
+                    </Badge>
                   </td>
                   <td className="py-4 px-4">
                     <Button variant="ghost" size="sm" className="text-gray-400 hover:text-gray-600">

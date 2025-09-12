@@ -10,17 +10,18 @@ import { Search, Filter, MoreHorizontal, ChevronLeft, ChevronRight } from "lucid
 const getStatusColor = (status) => {
   switch (status) {
     case "Delivered":
-      return "bg-green-100 text-green-800"
+      return "border border-green-500 text-green-500 bg-transparent"
     case "In Transit":
-      return "bg-blue-100 text-blue-800"
+      return "border border-blue-500 text-blue-500 bg-transparent"
     case "Pending":
-      return "bg-yellow-100 text-yellow-800"
+      return "border border-yellow-500 text-yellow-500 bg-transparent"
     case "Delayed":
-      return "bg-red-100 text-red-800"
+      return "border border-red-500 text-red-500 bg-transparent"
     default:
-      return "bg-gray-100 text-gray-800"
+      return "border border-gray-300 text-gray-500 bg-transparent"
   }
 }
+
 
 export function TrackingTable({ trackingData = [] }) {
   const [searchTerm, setSearchTerm] = useState("")
@@ -98,7 +99,8 @@ export function TrackingTable({ trackingData = [] }) {
                   <td className="py-4 px-4 text-sm text-gray-600">{item.destinationCity}</td>
                   <td className="py-4 px-4 text-sm text-gray-600">{item.carrier}</td>
                   <td className="py-4 px-4">
-                    <Badge className={`${getStatusColor(item.status)} border-0`}>{item.status}</Badge>
+                    <Badge className={`${getStatusColor(item.status)}`}>{item.status}</Badge>
+
                   </td>
                   <td className="py-4 px-4">
                     <Button variant="ghost" size="sm" className="text-gray-400 hover:text-gray-600">

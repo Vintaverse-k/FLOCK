@@ -106,17 +106,17 @@ const warehouses = [
     },
   },
 ]
-
 const getStatusColor = (status) => {
   switch (status) {
     case "Active":
-      return "bg-green-100 text-green-800"
+      return "border border-green-500 text-green-500 bg-transparent"
     case "Maintenance":
-      return "bg-orange-100 text-orange-800"
+      return "border border-orange-500 text-orange-500 bg-transparent"
     default:
-      return "bg-gray-100 text-gray-800"
+      return "border border-gray-300 text-gray-500 bg-transparent"
   }
 }
+
 
 export function WarehousesTable() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -191,9 +191,10 @@ export function WarehousesTable() {
                   <td className="py-4 px-4 text-sm text-gray-600">{warehouse.capacity.toLocaleString()}</td>
                   <td className="py-4 px-4 text-sm text-gray-600">{warehouse.used}%</td>
                   <td className="py-4 px-4">
-                    <Badge className={`${getStatusColor(warehouse.status)} border-0`}>
-                      {warehouse.status}
-                    </Badge>
+                    <Badge className={`${getStatusColor(warehouse.status)}`}>
+  {warehouse.status}
+</Badge>
+
                   </td>
                   <td className="py-4 px-4">
                     <div className="flex items-center">

@@ -11,15 +11,16 @@ import { Search, Filter, MoreHorizontal, ChevronLeft, ChevronRight } from "lucid
 const getStatusColor = (status) => {
   switch (status) {
     case "In Transit":
-      return "bg-yellow-100 text-yellow-800"
+      return "border-yellow-400 text-yellow-800 bg-transparent"
     case "Delivered":
-      return "bg-green-100 text-green-800"
+      return "border-green-400 text-green-800 bg-transparent"
     case "Delayed":
-      return "bg-red-100 text-red-800"
+      return "border-red-400 text-red-800 bg-transparent"
     default:
-      return "bg-gray-100 text-gray-800"
+      return "border-gray-400 text-gray-800 bg-transparent"
   }
 }
+
 
 export function ShipmentsTable({ shipments }) {
   const [searchTerm, setSearchTerm] = useState("")
@@ -162,7 +163,10 @@ export function ShipmentsTable({ shipments }) {
                   <td className="py-4 px-4 text-sm text-gray-600">{shipment.destination}</td>
                   <td className="py-4 px-4 text-sm text-gray-600">{shipment.carrier}</td>
                   <td className="py-4 px-4">
-                    <Badge className={`${getStatusColor(shipment.status)} border-0`}>{shipment.status}</Badge>
+                    <Badge className={`${getStatusColor(shipment.status)} border`}>
+  {shipment.status}
+</Badge>
+
                   </td>
                   <td className="py-4 px-4 text-sm text-gray-600">{shipment.eta}</td>
                   <td className="py-4 px-4 text-sm text-gray-600">{shipment.weight}</td>

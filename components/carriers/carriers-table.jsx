@@ -141,15 +141,16 @@ export default function CarriersTable() {
                   <td className="p-4">{carrier.contactPerson}</td>
                   <td className="p-4">
                     <Badge
-                      variant={carrier.status === "Active" ? "default" : "secondary"}
-                      className={
-                        carrier.status === "Active"
-                          ? "bg-green-100 text-green-800 hover:bg-green-100"
-                          : "bg-red-100 text-red-800 hover:bg-red-100"
-                      }
-                    >
-                      {carrier.status}
-                    </Badge>
+  variant={carrier.status === "Active" ? "default" : "secondary"}
+  className={
+    carrier.status === "Active"
+      ? "text-green-800 border border-green-500 bg-transparent"
+      : "bg-red-100 text-red-800 hover:bg-red-100"
+  }
+>
+  {carrier.status}
+</Badge>
+
                   </td>
                   <td className="p-4">
                     <Button variant="ghost" size="sm">
